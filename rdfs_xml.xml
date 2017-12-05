@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2000/01/rdf-schema#"
+     xml:base="http://www.w3.org/2000/01/rdf-schema"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sco="http://purl.org/ontology/sco#">
+    <owl:Ontology rdf:about="http://www.w3.org/2000/01/rdf-schema#">
+        <dc:title>The RDF Schema vocabulary (RDFS)</dc:title>
+        <sco:ontologyType rdf:resource="http://purl.org/ontology/sco#referenceOntology"/>
+        <seeAlso rdf:resource="http://www.w3.org/2000/01/rdf-schema-more"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/sco#ontologyType -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/ontology/sco#ontologyType"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#comment">
+        <label>comment</label>
+        <comment>A description of the subject resource.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#domain -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
+        <label>domain</label>
+        <comment>A domain of the subject property.</comment>
+        <domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#isDefinedBy -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#isDefinedBy">
+        <label>isDefinedBy</label>
+        <comment>The defininition of the subject resource.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
+        <label>label</label>
+        <comment>A human-readable name for the subject.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#member -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#member">
+        <label>member</label>
+        <comment>A member of the subject resource.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#range -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#range">
+        <label>range</label>
+        <comment>A range of the subject property.</comment>
+        <domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#seeAlso -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso">
+        <label>seeAlso</label>
+        <comment>Further information about the subject resource.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#subClassOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+        <label>subClassOf</label>
+        <comment>The subject is a subclass of a class.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#subPropertyOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+        <label>subPropertyOf</label>
+        <comment>The subject is a subproperty of a property.</comment>
+        <domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#domain -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
+        <label>domain</label>
+        <comment>A domain of the subject property.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#member -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#member">
+        <label>member</label>
+        <comment>A member of the subject resource.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#range -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#range">
+        <label>range</label>
+        <comment>A range of the subject property.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#subClassOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+        <label>subClassOf</label>
+        <comment>The subject is a subclass of a class.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#subPropertyOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+        <label>subPropertyOf</label>
+        <comment>The subject is a subproperty of a property.</comment>
+        <range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Property -->
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Class -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class">
+        <label>Class</label>
+        <subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <comment>The class of classes.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Container -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Container">
+        <label>Container</label>
+        <subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <comment>The class of RDF containers.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty">
+        <label>ContainerMembershipProperty</label>
+        <subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <comment>The class of container membership properties, rdf:_1, rdf:_2, ...,
+                    all of which are sub-properties of &apos;member&apos;.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Datatype -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Datatype">
+        <label>Datatype</label>
+        <subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <comment>The class of RDF datatypes.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Literal -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal">
+        <label>Literal</label>
+        <subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <comment>The class of literal values, eg. textual strings and integers.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Resource -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource">
+        <label>Resource</label>
+        <comment>The class resource, everything.</comment>
+        <isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.5-SNAPSHOT) http://owlapi.sourceforge.net -->
+
