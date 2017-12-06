@@ -1,0 +1,3338 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://qallme.itc.it/ontology/qallme-tourism.owl#"
+     xml:base="http://qallme.itc.it/ontology/qallme-tourism.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> 
+       Final version:4.0; Date:June 23, 2008; This ontolgy is updated by Shiyan Ou in University of Wolverhampton and reviewed by Christian Spurk in DFKI. </rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#duration -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#duration"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#time -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#time"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasAccommodation -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasAccommodation">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <rdfs:subPropertyOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasAttraction -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasAttraction">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+        <rdfs:subPropertyOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasCaptionLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasCaptionLanguage">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The language used for the caption of a movie</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <rdfs:subPropertyOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasLanguage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasChoreographer -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasChoreographer">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Choreographer"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasCompetitor -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasCompetitor">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Competition"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Competitor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasComposer -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasComposer">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Composer"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Concert"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasConductor -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasConductor">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Concert"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Conductor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasContact -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasContact">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasCreditCard -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasCreditCard">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CreditCard"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EntertainmentInfrastructure"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasCurrency -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasCurrency">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Currency"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasDatePeriod -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasDatePeriod">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasDestination -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasDestination">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A country can contain one or more destination.</rdfs:comment>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasDirectionLocation -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasDirectionLocation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Driving directions and location to a specific site</rdfs:comment>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DirectionLocation"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasDirector -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasDirector">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Director"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasDistance -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasDistance">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Distance"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasDistributor -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasDistributor">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Distributor"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasEvent -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasEvent">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:inverseOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isInSite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasEventContent -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasEventContent">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasGPSCoordinate -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasGPSCoordinate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GPSCoordinate"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasGastro -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasGastro">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+        <rdfs:subPropertyOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasGenre -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasGenre">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasInfrastructure -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasInfrastructure">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <rdfs:subPropertyOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasLanguage">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasMonth -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasMonth">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasNearby -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasNearby">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The nearby sites to a specific site</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:inverseOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasNearby"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasOpeningTime -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasOpeningTime">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasOrganizer -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasOrganizer">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Organizer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Activity"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Ceremony"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Convention"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Exhibition"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Party"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasPartDestination -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPartDestination">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A destination may contain some smaller destinations.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasPerformer -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPerformer">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Performer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Concert"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasPostalAddress -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPostalAddress">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasProducer -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasProducer">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Producer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoomFacility -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoomFacility">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomFacility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasSeason -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSeason">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Season"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasServiceProvider -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasServiceProvider">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ServiceProvider"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasSite -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSite">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A destination may contain one or more site which could be a accommodation, attraction, gastro or infrastructure.</rdfs:comment>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasSiteFacility -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSiteFacility">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SiteFacility"/>
+        <owl:inverseOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#providedBySite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasSpokenLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSpokenLanguage">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The language spoken in a site.</rdfs:comment>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <rdfs:subPropertyOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasLanguage"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasStar -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasStar">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Star"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasStudio -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasStudio">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Studio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasTimePeriod -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasTimePeriod">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TimePeriod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasWeekday -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasWeekday">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#hasWriter -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#hasWriter">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Writer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenDestination -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenDestination">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#InterCityTransportation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenTerminal -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenTerminal">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#isInCountry -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#isInCountry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A destination or a site must be located in a countr.</rdfs:comment>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#isInDestination -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#isInDestination">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A site must be located in a destnation.</rdfs:comment>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#isInSite -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#isInSite">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#isPartOfDestination -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#isPartOfDestination">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A destination may be a part of a bigger destination.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+        <owl:inverseOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPartDestination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#isToSite -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#isToSite">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Distance"/>
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#madeInCountry -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#madeInCountry">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Country"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#providedByRoom -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#providedByRoom">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomFacility"/>
+        <owl:inverseOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoomFacility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#providedBySite -->
+
+    <owl:ObjectProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#providedBySite">
+        <rdfs:range rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SiteFacility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#award -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#award">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Here award refers to a restaurant award or a movie award. A restaurant ward is to recognize the creativity, outstanding customer service and top quality dining that is on offer in the restaurants in a region, e.g. The Scottish Restaurant awards 2008. A movie award is to recognize achievements in cinema, usually by awarding various prizes, e.g. the &apos;Oscar&apos; for Hollywood&apos;s Academy Awards.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#barType -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#barType">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">For example, Topless bars, Sports bars, Dance bars.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#BarAndPub"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#bookingLink -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#bookingLink">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">if it is differnt from the website URL</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#bookingTelepnone -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#bookingTelepnone">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">if it is different from the telephone</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#building -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#building">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bulding name and room number</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#certificate -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#certificate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A motion picture rating system categorizes films with regard to suitability for audiences in terms of issues such as sex, violence, substance abuse, profanity, impudence or other types of mature content. A particular issued rating is called a certification/certificate.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#checkinTime -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#checkinTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#checkoutTime -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#checkoutTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#clubType -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#clubType">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">For example, Concert clubs, R&amp;B clubs, Rock clubs.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Club"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#comment -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#comment">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#contactPerson -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#contactPerson">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">it is treated as a string instead of a person object since contact person is not an important search target.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#countryCode -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#countryCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Country code (ISO 3166-1 alpha-3) is a three-part geographic coding standard for coding the names of countries and dependent areas, and the principal subdivisions thereof.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Country"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#cuisine -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#cuisine">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cuisine is a specific set of cooking traditions and practices, often associated with a specific culture. A cuisine is primarily influenced by the ingredients that are available locally or through trade.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#currencyCode -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#currencyCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Currency code (ISO 4217) is the international standard describing three letter codes  to define the names of currencies established by the International Organization for Standardization (ISO).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Currency"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#description -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#description">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#CreditCard"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#direction -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#direction">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It refers to descrptive information about how to go to a site by drive or walk.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DirectionLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#district -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#district">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#duration -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#duration">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#email -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#email">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#endDate -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#endDate">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Season"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#endTime -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#endTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TimePeriod"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#exchangRate -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#exchangRate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The exchage rate is to EUR.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Currency"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#fax -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#fax">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#languageCode -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#languageCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Language code represents natural language identifiers as defined by RFC 3066.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#lastEntryTime -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#lastEntryTime">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#latitude -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#latitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GPSCoordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#localTransport -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#localTransport">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It refers to descrptive information about bus and metro to a site.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DirectionLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#longitude -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#longitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GPSCoordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#mapLink -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#mapLink">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DirectionLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#menuItem -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#menuItem">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The items in a category of foods or drinks in a menu, for example, different drink items in &quot;Drinks&quot;, different items in &quot;Starters&quot;.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#menuType -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#menuType">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It refers to the categories of foods and drinks, e.g. Drinks, Desserts, Starters, Main courses.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#monthNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#monthNumber">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</rdf:first>
+                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#name">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#CreditCard"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#numOfRoom -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#numOfRoom">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The number of the rooms which can provide main services in a site, for example, guest rooms and conference rooms in an accommodation, screens in a cinema.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#originalTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#originalTitle">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#postalCode -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#postalCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#priceRange -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#priceRange">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sometimes it could be average price.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#priceType -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#priceType">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#priceValue -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#priceValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#product -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#product">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The products sold in a store or shopping center.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#releaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#releaseDate">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#roomCapacity -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#roomCapacity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The number of the persons which can be served by a room.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#roomType -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#roomType">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">e.g. single room, double room, en-suit room</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#seasonNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#seasonNumber">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Season"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#shopType -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#shopType">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">e.g. book store, computer store, dress store, jewellery store</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#specialRequirement -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#specialRequirement">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#starRating -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#starRating">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#startDate -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#startDate">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Season"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#startTime -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#startTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TimePeriod"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#statusOfGPSCoordinate -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#statusOfGPSCoordinate">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It indicates different precision levels of the GPS coordinates obtained for a site. 
+(1)CIV = the coordinates have the street civic number precision (the best situation from automatic geocoding: there is an exact matching of address and coordinates);  
+(2)STR = the coordinates have the street precision (a point along the street: civic number not found); 
+(3)CIT = the coordinates are relative to the city centre (street name not found); 
+(4)MAN = the coordinated has been manually obtained by the user.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GPSCoordinate"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CIT</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CIV</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MAN</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">STR</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#street -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#street">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">street name and street number</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#telephone -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#telephone">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#valueOfDistance -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#valueOfDistance">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The default unit is &quot;meter&quot;</rdfs:comment>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Distance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#website -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#website">
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#weekdayNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#weekdayNumber">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoom"/>
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoom"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A accommodation is lodging in a dwelling or similar living quarters afforded to travellers, usually on a short-term basis (from wikepedia). This class does not include those on vehicles such as cruise ships.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Activity -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Activity">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Ceremony"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Competition"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Concert"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Convention"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Exhibition"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Party"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Here, activity refers to other activities in which people can participate, as opposed to just being members of audience, e.g. outdoor adventures for children.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#AdministrationInfrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#AdministrationInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ConventionExhibitionInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EntertainmentInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#HealthInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">For example, city halls, embassies, and other government departments which provide adminstration service to the public.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Airport -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Airport">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#BusStation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CoachStation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#MetroStation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Seaport"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TrainStation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An airport terminal is a building at an airport where passengers transfer between ground transportation and the facilities that allow them to board and disembark from airplanes (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TicketPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TicketPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A tourist attraction is a place of interest where tourists visit (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Bank -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Bank">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CarParking"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GasStation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Library"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostOffice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#BarAndPub -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#BarAndPub">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Cafe"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Club"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Restaurant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This subclass includes bar, pub and tavern. A bar is a establishment  that sells drinks, typically alcoholic beverages, for immediate on-premises consumption. A public house, usually known as a pub, is an establishment which serves alcoholic drinks especially beer for consumption on the premises, usually in a homely setting. A tavern is, loosely, a place of business where people gather to drink alcoholic beverages and, more than likely, also be served food, though not licenced to put up guests (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#BedAndBreakfast -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#BedAndBreakfast">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Campsite"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Chalet"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Cottage"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hostel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hotel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Resort"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Bed and Breakfast (often referred to as a B&amp;B) is a type of boarding house typically operating out of a large single family residence. Guests are accommodated at night in private bedrooms and breakfast is served in the morning - either in the bedroom or, more commonly, in a dining room or the host&apos;s kitchen (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Bus -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Bus">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#IntraCityTransportation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Metro"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#BusStation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#BusStation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CoachStation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#MetroStation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Seaport"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TrainStation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A local bus has many stops, and thus it is not necessary to list all the stops. Here, a bus station only refers to the starting and ending points of a bus line.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Cafe -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Cafe">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Club"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Restaurant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A café is a type of cafeteria, often with an enclosed or outdoor section extending onto the pavement or sidewalk, where meals are served. Generally serving coffee and other beverages, cafés (or more commonly known as cafeterias) also serve meals but this is generally not considered their main trade in contrast to a restaurant (from wikepedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Campsite -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Campsite">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Chalet"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Cottage"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hostel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hotel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Resort"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A campsite (or campground) is a place used for overnight stay in the out of doors. It has two types -- an impromptu area (as one might decide to stop while backpacking or hiking) or a dedicated area with improvements and various facilities (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#CarParking -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#CarParking">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GasStation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Library"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostOffice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Ceremony -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Ceremony">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Competition"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Concert"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Convention"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Exhibition"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Party"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A ceremony is an activity, infused with ritual significance, performed on a special occasion, e.g. festival celebration.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Chalet -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Chalet">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Cottage"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hostel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hotel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Resort"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chalet is a family or group residence in mountain resorts, or in costal regions of the United Kingdom as self-catering holiday destinations. It can  be booked from private owners or tour operators (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ChildrenSiteFacility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ChildrenSiteFacility">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SiteFacility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DisabledSiteFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Choreographer -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Choreographer">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">People who create choreographies are called choreographers (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Cinema -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Cinema">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EntertainmentInfrastructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CinemaRoom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Theatre"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A cinema, also known as movie theatre or movie house, is a venue, usually a building, for viewing motion pictures (&quot;movies&quot; or &quot;films&quot;) (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#CinemaRoom -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#CinemaRoom">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoomFacility"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CinemaRoomFacility"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoom"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoom"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#CinemaRoomFacility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#CinemaRoomFacility">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomFacility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoomFacility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomFacility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoomFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Clinic -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Clinic">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#HealthInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hospital"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Pharmacy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Club -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Club">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Restaurant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A nightclub (often shortened to club) is an drinking, dancing and  entertainment venue which does its primary business after dark. A nightclub is usually distinguished from other forms of drinking and entertainment establishments, such as bars, pubs or taverns, by the inclusion of a dance floor (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Coach -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Coach">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#InterCityTransportation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenTerminal"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CoachStation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Flight"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Ship"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Train"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#CoachStation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#CoachStation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#MetroStation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Seaport"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TrainStation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class refers to all the coach stations rathen than only starting and end points.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Competition -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Competition">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Concert"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Convention"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Exhibition"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Party"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Here, competition means sports-related competition. A competition must have two or more competitors.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Competitor -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Competitor">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Competitor is a individual or group who participants in a sports or game competition.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Composer -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Composer">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A composer is a person who writes music.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Concert -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Concert">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Convention"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Exhibition"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Party"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A concert is a live performance, usually of music, before an audience. The music may be performed by a single musician, sometimes then called a recital, or by a musical ensemble, such as an orchestra, a choir, or a musical band (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Conductor -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Conductor">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A conductor(music) is a person who leads a musical ensemble by way of visible gestures.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoom -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoom">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoomFacility"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoomFacility"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoomPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoom"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoomFacility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoomFacility">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomFacility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomFacility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoomFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoomPrice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoomPrice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomPrice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomPrice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Contact -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Contact">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Country"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CreditCard"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Currency"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class contains contact information for a tourism site or a tourism event.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Convention -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Convention">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Exhibition"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Party"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A convention, in the sense of a meeting, is a gathering of individuals who meet at a pre-arranged place and time in order to discuss or engage in some common interest.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ConventionExhibitionInfrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ConventionExhibitionInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ConferenceRoom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EntertainmentInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#HealthInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Cottage -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Cottage">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hostel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hotel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Resort"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A cottage is a dwelling, typically in a rural, or semi-rural location, although there are cottage-style dwellings in cities (from wikepedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Country -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Country">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#CreditCard"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Currency"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A country is a  geographical entity, territory, most commonly associated with the notions of state or nation (from wikepedia). Currently this class only involves four countries of QALL-ME partners. In the QallMe ontology, a country individual must have at least one tourism desitination individual which is from the &quot;Destination&quot; class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#CreditCard -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#CreditCard">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Currency"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#CulturalHeritage -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#CulturalHeritage">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#NaturalHeritage"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ReligiousHeritage"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ThemePark"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ZooAndAquarium"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cultural heritage refers to a nation&apos;s historic monuments, museum collections, gallery collections, etc, which are inherited from one&apos;s ancestors. Here clutural heritage also includes industrial heritage excludes religious heritage which is treated as another subclass since there are lots of churchs, temples in a tourism destination.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Currency -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Currency">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TimePeriod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasTimePeriod"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasDatePeriod"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TimePeriod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Destination -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Destination">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasSite"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A tourism destination is a city, town, villiage, or other area,  the economy of which is dependent to a significant extent on the revenues accruing from tourism (from wikepedia).  Some times a destionation is aslo a country, e.g. Singapore. To simplify this case, a destination is also created under the country of the same name. A desintaion may contain some smaller destinations or a part of a bigger destination. In the QallMe ontology, a destination individual must be in a country individual from the &quot;Country&quot; class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#DirectionLocation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DirectionLocation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Distance"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GPSCoordinate"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This subclass contains direction information for a site, i.e. describing how to get to a site on foot or by car.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Director -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Director">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A director is a person directs the making of a film (film director) or oversees and orchestrates the mounting of a play by unifying various endeavors and aspects of production (theatrical director).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#DisabledSiteFacility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DisabledSiteFacility">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SiteFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Distance -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Distance">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GPSCoordinate"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class indicates the distance (meters) from a specfic site to another site.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Distributor -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Distributor">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A film distributor is an independent company, a subsidiary company or occasionally an individual, which acts as the final agent between a film production company or some intermediary agent, and a film exhibitor, to the end of securing placement of the producer&apos;s film on the exhibitor&apos;s screen (from wikipedia). In the film business, the term &quot;distribution&quot; refers to the marketing and circulation of movies in theaters, and for home viewing, e.g. DVD, Video-On-Demand, Television etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#DrinkPrice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DrinkPrice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#FoodPrice"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#MealPackagePrice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#EntertainmentInfrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EntertainmentInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TicketPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#HealthInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Event -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Event">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isInSite"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TicketPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasEventContent"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An event refers to an occurrence with a specific content in a specific site and for a specific time period, e.g. movie show.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Here event content refers to cultural or social events of interest to tourists. We divided an event into two parts – static for its content and dynamic for its occurrences. EventContent refers to the static information of an event.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Exhibition -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Exhibition">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Party"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An exhibition can be a presentation of art work or other objects (e.g. books, industrial products) in an exhibition hall. Here exhibition refers to non-permanent ones in a specific period, since permanent exhibition is regarded as a built-in part of a specific site (e.g. museum and gallery).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Facility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Facility refers to something designed and created to serve a particular function and to afford a particular convenience or service.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Flight -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Flight">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#InterCityTransportation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenTerminal"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Airport"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Ship"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Train"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#FoodPrice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#FoodPrice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#MealPackagePrice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#GPSCoordinate -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#GPSCoordinate">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This subclass contains GPS coordinate information for a site.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#GasStation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#GasStation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Library"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostOffice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A gastro is a place for providing prepared food, drink or both for travellers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomPrice"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TicketPrice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Genre -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Genre">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A genre is a loose set of criteria for a category of composition; the term is often used to categorize literature and speech, but is also used for any other form of art or utterance. Here it mainly refers to movie genre.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoom -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoom">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPrice"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomPrice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoomFacility"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomFacility"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomFacility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomFacility">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomFacility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoomFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomPrice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoomPrice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomPrice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GuestRoom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Gym -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Gym">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Stadium"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gym, a shortened form of gymnasium, refers to facilities intended for indoor sports or exercise.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#HealthInfrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#HealthInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Hospital -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Hospital">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#HealthInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Pharmacy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Hostel -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Hostel">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Hotel"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Resort"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A hostel provides accommodation where guests can rent a bed, sometimes a bunk bed, in a dormitory and share a common bathroom, kitchen, and lounge. Rooms can be mixed or single-sex, although private rooms are increasingly common in all types of hostels (from wikepedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Hotel -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Hotel">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Resort"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A hotel often provides a number of additional guest services such as a restaurant, a swiming pool or childcare. Some hotels have conference services and meeting rooms and encourage groups to hold conventions and meetings at their location (from wikepedia). A motel is regarded as a kind of hotel specifically for motorists.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#InterCityTransportation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#InterCityTransportation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenDestination"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#IntraCityTransportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class refers to the vehicles connecting two terminals located in two different cities or towns, such as flight, train, coach and ship.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#IntraCityTransportation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#IntraCityTransportation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class refers to the vehicles connecting two terminals within the same city or town, such as bus and metro.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Language -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Language">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Library -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Library">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PostOffice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Location -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Location">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#MealPackagePrice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#MealPackagePrice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#GastroPrice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DatePeriod"/>
+                            <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Metro -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Metro">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#IntraCityTransportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#MetroStation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#MetroStation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Seaport"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TrainStation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class refers to all the metro stations rathen than only starting and end points.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Month -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Month">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#March"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#February"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#October"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#January"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#July"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#December"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#November"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#May"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#June"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#August"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#September"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#April"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Movie -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Party"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#MovieOccurrence -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#MovieOccurrence">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasEventContent"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Movie"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isInSite"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Cinema"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasPeriod"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#NaturalHeritage -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#NaturalHeritage">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ReligiousHeritage"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ThemePark"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ZooAndAquarium"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Natural heritage refers to a nation&apos;s fauna and flora, natural resources, and landscape, including natural park, reserve, walk, national park etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Organizer -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Organizer">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Party -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Party">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Show"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A party is a social gathering for celebration or recreation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Performer -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Performer">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Artists who participate in performing arts in front of an audience are called performers, including actors, comedians, dancers, musicians, players and singers (from wikipedia). The movie actors/actresses which are called stars are not included.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Period -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Period">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization">
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class contains all kinds of persons or groups (or organizations), including Star, Director, Writer, Performer, Conductor, Producer, Composer, Competitor, Choreographer, Service Provider, Studio.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Pharmacy -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Pharmacy">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#HealthInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#PostOffice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#PostOffice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#PostalAddress">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isInCountry"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isInDestination"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This subclass contains postal information for a site.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Price -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Price">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasCurrency"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class contains price information for a product or a service.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Producer -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Producer">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A producer is a person who oversees the staging of theatre productions (theatrical producer) or oversees the making of films (film producer).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#PublicInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ReligiousHeritage -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ReligiousHeritage">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ThemePark"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ZooAndAquarium"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This subclass includes church, cathedral, temple, abbey etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Resort -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Resort">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Accommodation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A resort often combines a hotel and a variety of recreations, such as swimming pools, entertainment facilities (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Restaurant -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Restaurant">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Gastro"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A restaurant is an establishment that serves prepared food and beverages to order, to be consumed on the premises (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoom -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoom">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoomFacility"/>
+                <owl:someValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoomFacility"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoomFacility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#RestaurantRoomFacility">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Room -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Room">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoomFacility"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Site"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A room must provide some specific kinds of room facilities to realize its function. For example, a guest room must provide guest room facilities (e.g. shower, telephone); a cinema room must provide some cinema room facilities (e.g. induction hearing loop); a conference room must provide some conference room facilities (e.g. projector); and a restaurant must provide some restaurant room facilities (e.g. big table).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#RoomFacility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomFacility">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SiteFacility"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It refers to a facility provided by a kind of room, for example, TV, shower, king-size bed provide in a double guestroom.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#RoomPrice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#RoomPrice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasRoom"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TicketPrice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Seaport -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Seaport">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TrainStation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A seaport is a facility for receiving ships  to and from them and usually situated at the edge of an ocean or sea, river, or lake (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Season -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Season">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ServiceProvider -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ServiceProvider">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An company who provides services.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Ship -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Ship">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#InterCityTransportation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenTerminal"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Seaport"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Train"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ShoppingInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Show -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Show">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EventContent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Here show means theatre production in order to avoid the same term &quot;theatre&quot; refering to an building. Theatre is the branch of the performing arts concerned with acting out stories in front of an audience using combinations of speech, gesture, mime, puppets, music, dance, sound and spectacle — indeed any one or more elements of the other performing arts. In addition to the standard narrative dialogue style, theatre takes other forms, such as opera, operettas, ballet, mime, kabuki, puppetry, classical Indian dance, Chinese opera, mummers&apos; plays, improvisational theatre and pantomime (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Site -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Site">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#hasOpeningTime"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#DateTimePeriod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#SiteFacility -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#SiteFacility">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Facility"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It refers to a facility provied by a site, which usually does not belong to a specfic kind of room,  for example, swimming pool, bar, car park for a hotel.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Stadium -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Stadium">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#SportsInfrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A modern stadium is a place, or venue, for (mostly) outdoor sports, concerts or other events, consisting of a field or stage partly or completely surrounded by a structure designed to allow spectators to stand or sit and view the event.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Star -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Star">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A movie star or film star is a celebrity who is a person known for his or her roles in motion pictures.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Studio -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Studio">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A film studio is synonymous with &quot;major film production company&quot;, due largely to the fact that the leading production companies owned their own studio facilities, as do a few today.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Infrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In travel and transport, a terminal may mean airport terminal ( a building at an airport), terminal station(a passenger rail station), seaport terminal (a facility which handles shipping), and pipeline terminal (a storage facility at the downstream end of a pipeline transport) (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Theatre -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Theatre">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#EntertainmentInfrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A theater or theatre is a structure where theatrical works or plays are performed or other performances such as musical concerts may be given (from wikipedia). It includes arena, concert hall, opera house and so on. All theaters provide a acting space generally known as stage and a space for their audience.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ThemePark -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ThemePark">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+        <owl:disjointWith rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#ZooAndAquarium"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Today, amusement parks have largely been replaced by theme parks, and the two terms are often used interchangeably.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#TicketPrice -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#TicketPrice">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Price"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A ticket is a voucher to indicate that one has paid for admission to an event or establishment such as a theatre, movie theater, amusement park, zoo, museum, concert, or other attraction, or permission to travel on a vehicle such as an airliner, train, bus, or boat, typically because one has paid the fare (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#TimePeriod -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#TimePeriod">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Train -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Train">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#InterCityTransportation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenTerminal"/>
+                <owl:allValuesFrom rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TrainStation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#TrainStation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#TrainStation">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#TerminalInfrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A train terminal station refers to the termination of the railway line or service at that point (from wikipedia).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Transportation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#isBetweenTerminal"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transportation (or transport) refers to public vehicles which can transfer customers from one place to another.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Tuesday"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Wednesday"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Friday"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Monday"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Sunday"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Saturday"/>
+                    <rdf:Description rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Thursday"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Period"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Writer -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Writer">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#PersonOrganization"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A scriptwriter is a person who writes scripts for movies, plays, television, comedy shows, political speeches and other presentations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#ZooAndAquarium -->
+
+    <owl:Class rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#ZooAndAquarium">
+        <rdfs:subClassOf rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Attraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A zoo is a facility in which animals are confined within enclosures and displayed to the public, and in which they may also be bred. It also includes zoological garden, zoological park. A public aquarium is the aquatic counterpart of a zoo, housing aquatic species for viewing.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#April -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#April">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#August -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#August">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#December -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#December">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#February -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#February">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Friday -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Friday">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+        <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</weekdayNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#January -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#January">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#July -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#July">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#June -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#June">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#March -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#March">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#May -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#May">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Monday -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Monday">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+        <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</weekdayNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#November -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#November">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#October -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#October">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Saturday -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Saturday">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+        <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</weekdayNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#September -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#September">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Month"/>
+        <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</monthNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Sunday -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Sunday">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+        <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</weekdayNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Thursday -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Thursday">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+        <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</weekdayNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Tuesday -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Tuesday">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+        <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</weekdayNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qallme.itc.it/ontology/qallme-tourism.owl#Wednesday -->
+
+    <owl:NamedIndividual rdf:about="http://qallme.itc.it/ontology/qallme-tourism.owl#Wednesday">
+        <rdf:type rdf:resource="http://qallme.itc.it/ontology/qallme-tourism.owl#Weekday"/>
+        <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</weekdayNumber>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.5-SNAPSHOT) http://owlapi.sourceforge.net -->
+
